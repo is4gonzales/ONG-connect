@@ -70,9 +70,8 @@ export default function App() {
           Ao fazer parte da Connect, você ajuda a transformar vidas e levar esperança
           para crianças e famílias que precisam. Juntos podemos construir um futuro melhor.
         </Text>
-<br>
-</br>
-         <Text style={styles.descricao}>Cadatrar-se:</Text>
+
+        <Text style={styles.descricao}>Cadatrar-se:</Text>
 
         <TextInput style={styles.inputGrande} placeholder="Nome" />
         <TextInput style={styles.inputGrande} placeholder="Email" />
@@ -101,7 +100,7 @@ export default function App() {
 
         <View style={styles.cardGrande}>
           <Image
-            source={{ uri: "../assets/images/imagem-trabalho-1" }}
+            source={require("../assets/images/projeto-1.png")}
             style={styles.cardImageGrande}
           />
           <Text style={styles.cardTitleGrande}>Projeto Educação</Text>
@@ -113,7 +112,7 @@ export default function App() {
 
         <View style={styles.cardGrande}>
           <Image
-            source={{ uri: "../assets/images/imagem-trabalho-2.png" }}
+            source={require("../assets/images/projetos-2.png")}
             style={styles.cardImageGrande}
           />
           <Text style={styles.cardTitleGrande}>Projeto Comunidade</Text>
@@ -148,7 +147,7 @@ export default function App() {
         </Text>
 
         <Image
-          source={{ uri: "" }}
+          source={require("../assets/images/doacoes.png")} // Ajuste para a imagem que deseja exibir aqui
           style={styles.imagemDoacao}
         />
 
@@ -246,6 +245,7 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     marginTop: 10,
     textAlign: "center",
+    fontSize: 25,
   },
 
   titulo: {
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
 
   imagemDoacao: {
     width: "100%",
-    height: 200,
+    height: 300,
     borderRadius: 10,
     marginBottom: 1,
   },
