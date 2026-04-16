@@ -11,12 +11,17 @@ export default function Cadastro() {
     const [telefone, setTelefone] = useState("");
     const [senha, setSenha] = useState("");
 
-    function cadastrar() {
-        if (!nome.trim()) {
-            alert("Digite seu nome!");
-            return;
-        }
-
+ function cadastrar() {
+    if (
+        !nome.trim() ||
+        !email.trim() ||
+        !cpf.trim() ||
+        !telefone.trim() ||
+        !senha.trim()
+    ) {
+        alert("Preencha todos os campos!");
+        return;
+    }
         const id = Math.random().toString(36).substring(2, 9);
 
         router.push({
@@ -83,7 +88,6 @@ export default function Cadastro() {
                 onChangeText={setSenha}
             />
 
-            {/* BOTÃO ALTERADO */}
             <TouchableOpacity style={styles.botaoForm} onPress={cadastrar}>
                 <Text style={styles.textoBotaoForm}>Cadastrar</Text>
             </TouchableOpacity>
