@@ -25,7 +25,7 @@ export default function Cadastro() {
         const id = Math.random().toString(36).substring(2, 9);
 
         router.push({
-            pathname: "/dashboard",
+            pathname: "/tabs/dashboard",
             params: {
                 userName: nome,
                 voluntarioId: id,
@@ -39,7 +39,7 @@ export default function Cadastro() {
             <Text style={styles.titulo}>Cadastro</Text>
 
             <Image
-                source={require("../assets/images/connect-logo.png")}
+                source={require("../../assets/images/connect-logo.png")}
                 style={styles.logoCadastro}
             />
 
@@ -48,7 +48,7 @@ export default function Cadastro() {
                 para crianças e famílias que precisam. Juntos podemos construir um futuro melhor.
             </Text>
 
-            <Text style={styles.descricao}>Cadatrar-se:</Text>
+            <Text style={styles.descricao}><strong>Cadatrar-se:</strong></Text>
 
             <TextInput
                 style={styles.inputGrande}
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         padding: 20
     },
     titulo: {
-        fontSize: 40,
+        fontSize: 35,
         color: "#862544ff",
         textAlign: "center",
         marginBottom: 25,
@@ -117,23 +117,23 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "#862544ff",
         marginBottom: 25,
-        fontSize: 25
+        fontSize: 23
     },
     logoCadastro: {
-        width: 500,
-        height: 300,
+        width: 450,
+        height: 250,
         alignSelf: "center"
     },
     inputGrande: {
         backgroundColor: "#fcfcfc8b",
         padding: 20,
         borderRadius: 13,
-        marginBottom: 15,
-        fontSize: 19
+        marginBottom: 10,
+        fontSize: 17
     },
     botaoForm: {
         backgroundColor: "#d6507dff",
-        padding: 16,
+        padding: 13,
         borderRadius: 12,
         marginTop: 10,
         alignItems: "center"
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     textoBotaoForm: {
         fontWeight: "bold",
         color: "#fff",
-        fontSize: 25
+        fontSize: 23
     },
     login: {
         color: "#862544ff",

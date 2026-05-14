@@ -7,26 +7,62 @@ import {
   ScrollView,
   TextInput
 } from "react-native";
+
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 
 export default function Dashboard() {
-  const { userName } = useLocalSearchParams();
+
+  const { userName, voluntarioId } = useLocalSearchParams();
+
   const router = useRouter();
 
   const [selecionados, setSelecionados] = useState<string[]>([]);
   const [outro, setOutro] = useState("");
 
   function toggleOpcao(opcao: string) {
+
     if (selecionados.includes(opcao)) {
-      setSelecionados(selecionados.filter(item => item !== opcao));
+
+      setSelecionados(
+        selecionados.filter(item => item !== opcao)
+      );
+
     } else {
-      setSelecionados([...selecionados, opcao]);
+
+      setSelecionados([
+        ...selecionados,
+        opcao
+      ]);
+
     }
   }
 
+function selecionar() {
+
+  const todosInteresses = [...selecionados];
+
+  if (outro.trim()) {
+
+    todosInteresses.push(outro);
+
+  }
+
+  router.replace({
+    pathname: "/tabs/perfil",
+    params: {
+      userName,
+      voluntarioId,
+      interesses: JSON.stringify(todosInteresses),
+    },
+  });
+
+}
+
   function sair() {
+
     router.replace("/");
+
   }
 
   const opcoes = [
@@ -39,29 +75,32 @@ export default function Dashboard() {
   ];
 
   return (
+
     <ScrollView style={styles.container}>
 
       <Image
-        source={require("../assets/images/connect-logo.png")}
+        source={require("../../assets/images/connect-logo.png")}
         style={styles.logo}
       />
 
       <Text style={styles.titulo}>
-        Bem-vindo(a), {userName}! 
+        Bem-vindo(a), {userName}!
       </Text>
 
       <Text style={styles.descricao}>
-        Você agora faz parte de algo maior. ♡
+        Agora você faz parte de algo maior. ♡
         {"\n\n"}
         Nossa missão é transformar vidas através da educação,
         solidariedade e apoio às famílias que mais precisam.
       </Text>
 
       <Text style={styles.descricao}>
-        Como você quer ajudar?
+        Como você quer ajudar?<br></br>
+        (Máximo 3)
       </Text>
 
       {opcoes.map((opcao, index) => (
+
         <TouchableOpacity
           key={index}
           style={[
@@ -70,27 +109,37 @@ export default function Dashboard() {
           ]}
           onPress={() => toggleOpcao(opcao)}
         >
+
           <Text style={styles.textoBotao}>
             {selecionados.includes(opcao) ? "■" : "☐"} {opcao}
           </Text>
+
         </TouchableOpacity>
+
       ))}
 
-      <Text style={styles.descricao}>Pretende ajudar de outro jeito?</Text>
+      <Text style={styles.descricao}>
+        Pretende ajudar de outro jeito?
+      </Text>
 
       <TextInput
         style={styles.inputGrande}
-        placeholder="Descreva como deseja ajudar..."
+        placeholder="Descreva como deseja ajudar"
         value={outro}
         onChangeText={setOutro}
       />
 
-      <TouchableOpacity style={styles.botao}>
-        <Text style={styles.textoBotao}>Selecionar</Text>
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={selecionar}
+      >
+        <Text style={styles.textoBotao}>
+          Selecionar
+        </Text>
       </TouchableOpacity>
 
-    <TouchableOpacity onPress={sair}>
-        <Text style={styles.login}>Sair</Text>
+      <TouchableOpacity onPress={() => router.back()}>
+        <Text style={styles.login}>Voltar</Text>
       </TouchableOpacity>
 
     </ScrollView>
@@ -98,6 +147,7 @@ export default function Dashboard() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: "#e397af64",
@@ -105,11 +155,11 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 600,
-    height: 300,
+    width: 400,
+    height: 200,
     alignSelf: "center",
     resizeMode: "contain",
-    marginBottom: 10,
+    marginBottom: 5,
   },
 
   titulo: {
@@ -156,4 +206,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 22,
   },
+
 });

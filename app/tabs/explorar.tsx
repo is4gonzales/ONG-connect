@@ -12,7 +12,7 @@ export default function Projetos() {
 
             <View style={styles.cardGrande}>
                 <Image
-                    source={require("../assets/images/projeto-1.png")}
+                    source={require("../../assets/images/projeto-1.png")}
                     style={styles.cardImageGrande}
                 />
                 <Text style={styles.cardTitleGrande}>Projeto Educação</Text>
@@ -24,7 +24,7 @@ export default function Projetos() {
 
             <View style={styles.cardGrande}>
                 <Image
-                    source={require("../assets/images/projetos-2.png")}
+                    source={require("../../assets/images/projetos-2.png")}
                     style={styles.cardImageGrande}
                 />
                 <Text style={styles.cardTitleGrande}>Projeto Comunidade</Text>

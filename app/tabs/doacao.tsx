@@ -10,7 +10,7 @@ export default function Doacao() {
         <ScrollView style={styles.container}>
 
             <Image
-                source={require("../assets/images/connect-logo.png")}
+                source={require("../../assets/images/connect-logo.png")}
                 style={styles.logoCadastro}
             />
 
@@ -22,7 +22,7 @@ export default function Doacao() {
             </Text>
 
             <Image
-                source={require("../assets/images/doacoes.png")}
+                source={require("../../assets/images/doacoes.png")}
                 style={styles.imagemDoacao}
             />
 
@@ -64,22 +64,23 @@ const styles = StyleSheet.create({
         padding: 20
     },
     titulo: {
-        fontSize: 40,
+        fontSize: 30,
         color: "#862544ff",
         textAlign: "center",
-        marginBottom: 25,
+        marginBottom: 5,
         fontWeight: "bold"
     },
     descricao: {
         textAlign: "center",
         color: "#862544ff",
-        marginBottom: 25,
-        fontSize: 25
+        marginBottom: 40,
+        fontSize: 22
     },
     logoCadastro: {
-        width: 500,
-        height: 300,
-        alignSelf: "center"
+        width: 350,
+        height: 250,
+        alignSelf: "center",
+        marginBottom: 15
     },
     inputGrande: {
         backgroundColor: "#fcfcfc8b",
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     },
     botaoForm: {
         backgroundColor: "#d6507dff",
-        padding: 16,
+        padding: 13,
         borderRadius: 12,
         marginTop: 10,
         alignItems: "center"
@@ -98,16 +99,16 @@ const styles = StyleSheet.create({
     textoBotaoForm: {
         fontWeight: "bold"
         , color: "#fff"
-        , fontSize: 25
+        , fontSize: 23
     },
     imagemDoacao: {
         width: "100%",
-        height: 300,
+        height: 250,
         borderRadius: 10
     },
     check: {
         color: "#862544ff",
-        fontSize: 25,
+        fontSize: 20,
         marginBottom: 10
     },
     login: {
@@ -115,6 +116,6 @@ const styles = StyleSheet.create({
         textDecorationLine: "underline",
         marginTop: 10,
         textAlign: "center",
-        fontSize: 25
+        fontSize: 20
     },
 });

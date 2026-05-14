@@ -20,7 +20,7 @@ export default function Inicio() {
       <View style={styles.topo}>
 
         <Image
-          source={require("../assets/images/connect-logo.png")}
+          source={require("../../assets/images/connect-logo.png")}
           style={styles.logo}
         />
 
